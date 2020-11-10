@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.5.17/vue.min.js"></script>
+</head>
+
+<body>
+
+    <div id="app">
+        {{msg}}
+        <p>{{msg1}}</p>
+    </div>
+
+    <script>
+        var arr = 'arr_test'
+        var app = new Vue({
+                    el: "#app",
+                    data: {
+                        msg: "Hello Vue!",
+                        another: "another"
+                    },
+                    watch: {
+                        msg: function(newval, oldval) {  // watch只对监听的一个变量msg有效
+                            console.log('newval is: ' + newval)
+                            console.log('oldval is: ' + oldval)
+                        }
+                    },
+                    computed: {
+                        msg1: function() {
+                            return 'computed:' + this.msg + this.another + arr // computed可以获得多个变量的变化
+                        }
+                    }
+                })
+    </script>
+</body>
+</html>

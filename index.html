@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.5.17/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div class="bg">
+            hello world!
+            {{msg}}
+        </div>
+        <div class="bg">
+            {{msg}}
+        </div>
+        {{(count + 5) * 100}}
+
+        <div v-html="template">
+        </div>
+
+        <a v-bind:href="url">百度</a>
+
+        <button type="button" v-on:click="submit()"></button>
+    </div>
+
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                msg: 'hello vue!',
+                count: 0,
+                template: '<div>hello template</div>',
+                url:'http://www.baidu.com'
+            },
+            methods: {
+                submit: function () {
+                    this.count++;
+                }
+            }
+        })
+    </script>
+</body>
+</html>
